@@ -1,0 +1,26 @@
+
+.contentN {
+    text-align: center;
+    list-style: none;
+    width: 114px;
+    border: solid 1px #000;
+    margin: 0;
+}
+.List {
+  width: 114px;
+/*margin-top: 5px;
+margin-bottom: 5px;*/
+}
+.contentNSelected {
+  text-align: center;
+  list-style: none;
+  width: 114px;
+  border: solid 1px #000;
+  margin: 0;
+  background-color: #000;
+  font-size: 120%;
+  color: #fff;
+}
+.tasklist {
+  float: left;
+}
