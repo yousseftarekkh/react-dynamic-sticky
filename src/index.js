@@ -1,10 +1,9 @@
-
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Button from 'react-button';
-import './index.css';
+import ReactDOM from 'react-dom';
+import Sticky from 'react-sticky-el';
 import StickyContainer from './StickyContainer.js';
-import DynamicSticky from './DynamicSticky.js'
+import './index.css';
 
 var tasksList = ["Task 1", "Task 2"];
 class Main extends React.Component {
@@ -13,12 +12,13 @@ class Main extends React.Component {
     this.state = {
       tasks: props.tasks,
       i: 3,
+      selectedElems: [],
     };
     this.addContent = this.addContent.bind(this);
   }
   addContent(){
     var updatedTasks =  this.state.tasks;
-    updatedTasks.push("Task "+this.state.i);
+    updatedTasks.push("Task " + this.state.i);
     this.setState({
       tasks: updatedTasks,
       i: this.state.i+1,
@@ -39,26 +39,28 @@ class StickyList extends React.Component {
     this.state = {
       class: "contentN",
       bottomSelectedOffSet : 0,
-      i: -1,
+      selected: [],
       isTop: true,
     }
   }
   handleClick(num) {
+    var updatedSelection =  this.state.selected;
+    updatedSelection.push(num);
     this.setState({
-      i: num,
+      selected: updatedSelection,
     })
   }
   render(){
     var items = this.props.tasks.map((elem, i) => {
-      if(this.state.i===i)
-        return <DynamicSticky className="selectedSticky" key= {i}><li key= {i} className={"contentNSelected"} onClick={() => this.handleClick(i)}>{elem}</li></DynamicSticky>
+      if(this.state.selected.indexOf(i)!==-1)
+        return <Sticky scrollElement=".scroll-area" className="selectedOne" key= {i}><li key= {i} className={"contentNSelected"} onClick={() => this.handleClick(i)}>{elem}</li></Sticky>
       return <li key= {i} className={"contentN"} onClick={ () => this.handleClick(i)}>{elem}</li>
     })
     return (
       <div>
-        <StickyContainer>
+          <StickyContainer>
             {items}
-        </StickyContainer>
+          </StickyContainer>
         <div className={this.state.i === -1?"contentNSelected":"ref"} style={{display:"none"}}/>
       </div>
     )

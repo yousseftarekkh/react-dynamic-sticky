@@ -7,9 +7,12 @@
     margin: 0;
 }
 .List {
-  width: 114px;
-/*margin-top: 5px;
-margin-bottom: 5px;*/
+  width: 160px;
+}
+.scroll-area {
+  height: 200px;
+  width: 173px;
+  overflow: auto;
 }
 .contentNSelected {
   text-align: center;
@@ -23,4 +26,7 @@ margin-bottom: 5px;*/
 }
 .tasklist {
   float: left;
+}
+.selectedOne {
+
 }
