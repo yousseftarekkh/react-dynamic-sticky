@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-button';
 import ReactDOM from 'react-dom';
-import Sticky from 'react-sticky-el';
+import DynamicSticky from './DynamicSticky';
 import StickyContainer from './StickyContainer.js';
 import './index.css';
 
@@ -49,19 +49,20 @@ class StickyList extends React.Component {
     this.setState({
       selected: updatedSelection,
     })
+    // this.clicked = this.state.selected[this.state.selected.length-1];
   }
   render(){
     var items = this.props.tasks.map((elem, i) => {
+      // console.log(i);
       if(this.state.selected.indexOf(i)!==-1)
-        return <Sticky scrollElement=".scroll-area" className="selectedOne" key= {i}><li key= {i} className={"contentNSelected"} onClick={() => this.handleClick(i)}>{elem}</li></Sticky>
+        return <DynamicSticky containerSelected={this.state.selected} number={i} scrollElement=".scroll-area" className="selectedOne" key= {i}><li key= {i} onClick={() => this.handleClick(i)}>{elem}</li></DynamicSticky>
       return <li key= {i} className={"contentN"} onClick={ () => this.handleClick(i)}>{elem}</li>
     })
     return (
-      <div>
+      <div className="container">
           <StickyContainer>
             {items}
           </StickyContainer>
-        <div className={this.state.i === -1?"contentNSelected":"ref"} style={{display:"none"}}/>
       </div>
     )
   }
