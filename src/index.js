@@ -29,7 +29,7 @@ class Main extends React.Component {
     return(
     <div>
       <Button onClick={this.addContent}>More Tasks</Button>
-      <StickyList className="tasklist" tasks={this.state.tasks}/>
+      <StickyList className="tasklist" numElems={this.state.i} tasks={this.state.tasks}/>
     </div>)
   }
 }
@@ -45,18 +45,18 @@ class StickyList extends React.Component {
   }
   handleClick(num) {
     var updatedSelection =  this.state.selected;
-    updatedSelection.push(num);
-    this.setState({
-      selected: updatedSelection,
-    })
-    // this.clicked = this.state.selected[this.state.selected.length-1];
+    if(updatedSelection.indexOf(num)===-1) {
+      updatedSelection.push(num);
+      this.setState({
+        selected: updatedSelection,
+      })
+    }
   }
   render(){
     var items = this.props.tasks.map((elem, i) => {
-      // console.log(i);
       if(this.state.selected.indexOf(i)!==-1)
-        return <DynamicSticky containerSelected={this.state.selected} number={i} scrollElement=".scroll-area" className="selectedOne" key= {i}><li key= {i} onClick={() => this.handleClick(i)}>{elem}</li></DynamicSticky>
-      return <li key= {i} className={"contentN"} onClick={ () => this.handleClick(i)}>{elem}</li>
+        return <DynamicSticky containerSelected={this.state.selected} numElems={this.props.numElems} number={i} scrollElement=".scroll-area" className="selectedOne" key= {i}><li key= {i} onClick={() => this.handleClick(i)}>{elem}</li></DynamicSticky>
+      return <li key= {i} className={"contentN"} onClick={ () => this.handleClick(i)} >{elem}</li>
     })
     return (
       <div className="container">
