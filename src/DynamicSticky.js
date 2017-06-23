@@ -9,21 +9,20 @@ export default class DynamicSticky extends React.Component {
       isTop: false,
     }
   }
-  componentWillMount(){
-    this.isTop = false;
+  onScroll(){
+    var scrolled = document.getElementsByClassName("scroll-area")[0].scrollTop;
+    var scrollingheight = parseInt(document.getElementsByClassName("scroll-area")[0].style.height,10);
+    var content = document.getElementsByClassName("contentNSelected").length>0?document.getElementsByClassName("contentNSelected")[this.props.containerSelected.indexOf(this.props.number)]:null;
+    if(content !== null) {
+       var index = this.props.number;
+      this.setState({
+      isTop: content.clientHeight*(index+1)+content.clientHeight<scrollingheight+scrolled?true:false,
+      });
+    }
   }
   componentDidMount(){
-    document.getElementsByClassName("scroll-area")[0].addEventListener('scroll', ()=>{
-      var scrolled = document.getElementsByClassName("scroll-area")[0].scrollTop;
-      var scrollingheight = parseInt(document.getElementsByClassName("scroll-area")[0].style.height,10);
-      var content = document.getElementsByClassName("contentNSelected").length>0?document.getElementsByClassName("contentNSelected")[this.props.containerSelected.indexOf(this.props.number)]:null;
-      if(content !== null) {
-         var index = this.props.number;
-        this.setState({
-        isTop: content.clientHeight*(index+1)+content.clientHeight<scrollingheight+scrolled?true:false,
-        });
-      }
-    });
+    this.listener = this.onScroll.bind(this);
+    document.getElementsByClassName("scroll-area")[0].addEventListener('scroll',this.listener);
   }
   render () {
     return (
