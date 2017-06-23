@@ -6,13 +6,14 @@ import './index.css';
 import StickyContainer from './StickyContainer.js';
 import DynamicSticky from './DynamicSticky.js'
 
-var tasksList = ["Task 1", "Task 2"];
+var tasksList = ["Task 1", "Task 2", "Task 3", "Task 4", "Task 5", "Task 1", "Task 2", "Task 3", "Task 4", "Task 5"];
 class Main extends React.Component {
   constructor(props) {
     super();
     this.state = {
       tasks: props.tasks,
       i: 3,
+      class: "contentN"
     };
     this.addContent = this.addContent.bind(this);
   }
@@ -22,7 +23,6 @@ class Main extends React.Component {
     this.setState({
       tasks: updatedTasks,
       i: this.state.i+1,
-      class: "contentN"
     });
   }
   render() {
@@ -37,10 +37,7 @@ class StickyList extends React.Component {
   constructor() {
     super();
     this.state = {
-      class: "contentN",
-      bottomSelectedOffSet : 0,
       i: -1,
-      isTop: true,
     }
   }
   handleClick(num) {
@@ -51,7 +48,7 @@ class StickyList extends React.Component {
   render(){
     var items = this.props.tasks.map((elem, i) => {
       if(this.state.i===i)
-        return <DynamicSticky className="selectedSticky" key= {i}><li key= {i} className={"contentNSelected"} onClick={() => this.handleClick(i)}>{elem}</li></DynamicSticky>
+        return <DynamicSticky className="selectedSticky" number={i} key= {i}><li key= {i} onClick={() => this.handleClick(i)}>{elem}</li></DynamicSticky>
       return <li key= {i} className={"contentN"} onClick={ () => this.handleClick(i)}>{elem}</li>
     })
     return (
@@ -59,7 +56,6 @@ class StickyList extends React.Component {
         <StickyContainer>
             {items}
         </StickyContainer>
-        <div className={this.state.i === -1?"contentNSelected":"ref"} style={{display:"none"}}/>
       </div>
     )
   }

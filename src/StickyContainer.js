@@ -8,7 +8,6 @@ export default class StickyContainer extends React.Component {
         <ul className="list">
           {this.props.children}
         </ul>
-        <div className="contentNSelected" style={{display:"none"}}/>
       </div>
     )
   }
