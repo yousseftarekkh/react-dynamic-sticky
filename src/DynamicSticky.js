@@ -18,7 +18,6 @@ export default class DynamicSticky extends React.Component {
       this.setState({
         isTop: content.clientHeight*(index+1)+content.clientHeight<scrollingheight+scrolled?true:false,
       });
-      setTimeout(console.log(this.state.isTop), 10);
     }
   }
   componentDidMount() {
