@@ -11,7 +11,7 @@
     "react-dom": "^15.5.4",
     "react-list-view": "^1.0.0",
     "react-sticky": "^6.0.1",
-    "react-sticky-el": "^1.0.3",
+    "react-sticky-el": "git+https://git@github.com/yousseftarekkh/react-sticky-el.git",
     "react-toolbox": "^2.0.0-beta.12",
     "store": "^2.0.4"
   },
