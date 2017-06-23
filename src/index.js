@@ -6,7 +6,7 @@ import './index.css';
 import StickyContainer from './StickyContainer.js';
 import DynamicSticky from './DynamicSticky.js'
 
-var tasksList = ["Task 1", "Task 2", "Task 3", "Task 4", "Task 5", "Task 1", "Task 2", "Task 3", "Task 4", "Task 5"];
+var tasksList = ["Task 1", "Task 2"];
 class Main extends React.Component {
   constructor(props) {
     super();
@@ -49,7 +49,7 @@ class StickyList extends React.Component {
     var items = this.props.tasks.map((elem, i) => {
       if(this.state.i===i)
         return <DynamicSticky className="selectedSticky" number={i} key= {i}><li key= {i} onClick={() => this.handleClick(i)}>{elem}</li></DynamicSticky>
-      return <li key= {i} className={"contentN"} onClick={ () => this.handleClick(i)}>{elem}</li>
+      return <li key= {i} className="contentN" onClick={ () => this.handleClick(i)}>{elem}</li>
     })
     return (
       <div>
