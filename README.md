@@ -2,7 +2,7 @@
 ---
 This component is a further enhancement for the pre-implemented component [Sticky](https://www.npmjs.com/package/react-sticky-el) for comprehending how the used component "Sticky" works : https://www.npmjs.com/package/react-sticky-el .
 
-### Basic Explaination
+### Basic Explanation
 ---
 - Allows multiple selections.
 - The contents that you want to stick should be wrapped in the <DynamicSticky /> tag with boundaries wrapped in the <StickyContainer /> tag.
