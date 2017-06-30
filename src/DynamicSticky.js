@@ -29,7 +29,7 @@ export default class DynamicSticky extends React.Component {
   }
   render () {
     return (
-      <Sticky className="contentNSelected" mode={this.state.isTop?"top":"bottom"} scrollElement=".scroll-area">
+      <Sticky className="contentNSelected" mode="both" scrollElement=".scroll-area">
         {this.props.children}
       </Sticky>
     )
