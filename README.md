@@ -1,6 +1,6 @@
 ### Overview
 ---
-This component is a further enhancement for the pre-implemented component [Sticky](https://www.npmjs.com/package/react-sticky-el) for comprehending how the used component "Sticky" works : https://www.npmjs.com/package/react-sticky-el .
+This component is a further enhancement of the pre-implemented component [Sticky](https://www.npmjs.com/package/react-sticky-el) to comprehend how the used "Sticky" component works : https://www.npmjs.com/package/react-sticky-el .
 
 ### Basic Explanation
 ---
