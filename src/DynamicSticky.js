@@ -1,5 +1,5 @@
 import React from 'react';
-import Sticky from './react-sticky-el/src';
+import Sticky from 'react-sticky-el';
 import './index.css';
 
 export default class DynamicSticky extends React.Component {
