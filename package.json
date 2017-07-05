@@ -8,8 +8,7 @@
     "react": "^15.6.1",
     "react-button": "^1.2.1",
     "react-dom": "^15.6.1",
-    "react-sticky-el": "git+https://github.com/yousseftarekkh/react-sticky-el.git",
-    "react-website": "github:yousseftarekkh/react-website"
+    "react-sticky-el": "git+https://github.com/yousseftarekkh/react-sticky-el.git"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
