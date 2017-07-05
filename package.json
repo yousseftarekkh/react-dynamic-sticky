@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lodash": "^4.17.4",
-    "npm-git-install": "^0.3.0",
     "react": "^15.6.1",
     "react-button": "^1.2.1",
     "react-dom": "^15.6.1",
-    "react-sticky-el": "git+https://github.com/yousseftarekkh/react-sticky-el.git"
+    "react-sticky-el": "^1.0.10"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
